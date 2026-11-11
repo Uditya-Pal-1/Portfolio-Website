@@ -1,7 +1,6 @@
 /* global process */
 // Vercel serverless function — POST /api/contact (Nodemailer + SMTP)
-// Set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_TO in Vercel env vars.
-// Without SMTP creds it accepts the message and returns ok.
+// Accepts either SMTP_* or MAILTRAP_* env vars. Without creds it returns ok (no delivery).
 
 import nodemailer from 'nodemailer';
 
@@ -30,16 +29,23 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Message must be between 10 and 5000 characters.' });
   }
 
-  if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS && process.env.CONTACT_TO) {
+  const smtp = {
+    host: process.env.SMTP_HOST || process.env.MAILTRAP_HOST,
+    port: Number(process.env.SMTP_PORT || process.env.MAILTRAP_PORT || 465),
+    user: process.env.SMTP_USER || process.env.MAILTRAP_USERNAME,
+    pass: process.env.SMTP_PASS || process.env.MAILTRAP_PASSWORD
+  };
+
+  if (smtp.host && smtp.user && smtp.pass && process.env.CONTACT_TO) {
     try {
       const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: Number(process.env.SMTP_PORT || 465),
-        secure: Number(process.env.SMTP_PORT || 465) === 465,
-        auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS }
+        host: smtp.host,
+        port: smtp.port,
+        secure: smtp.port === 465,
+        auth: { user: smtp.user, pass: smtp.pass }
       });
       await transporter.sendMail({
-        from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
+        from: `"Portfolio Contact" <${process.env.MAILTRAP_SENDEREMAIL || smtp.user}>`,
         to: process.env.CONTACT_TO,
         replyTo: email.trim(),
         subject: `Portfolio message from ${name.trim()}`,
