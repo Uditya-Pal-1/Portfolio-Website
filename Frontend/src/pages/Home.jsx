@@ -387,11 +387,16 @@ export default function Home({ theme, toggleTheme }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent)]/50 hover:shadow-xl"
+                className={`group relative flex flex-col overflow-hidden rounded-2xl border bg-[var(--bg-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${cert.premium ? 'border-[var(--accent)]/60 shadow-[0_0_35px_-12px_var(--accent)] hover:border-[var(--accent)]' : 'border-[var(--border)] hover:border-[var(--accent)]/50'}`}
               >
+                {cert.premium && (
+                  <span className="absolute left-3 top-3 z-10 rounded-full bg-[var(--accent)] px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-widest text-white shadow-lg">
+                    Milestone
+                  </span>
+                )}
                 <div className="relative h-36 overflow-hidden bg-[var(--bg-subtle)]">
                   <CertThumb file={cert.file} title={cert.title} className="transition-transform duration-500 group-hover:scale-105" />
-                  <span className="absolute right-3 top-3 rounded-full bg-black/60 px-2.5 py-0.5 font-mono text-[10px] font-medium text-white backdrop-blur-sm">{cert.year}</span>
+                  <span className={`absolute rounded-full px-2.5 py-0.5 font-mono text-[10px] font-medium text-white backdrop-blur-sm ${cert.premium ? 'right-3 top-9 bg-black/70' : 'right-3 top-3 bg-black/60'}`}>{cert.year}</span>
                 </div>
                 <div className="flex flex-1 flex-col p-4">
                   <h3 className="text-sm font-bold tracking-tight transition-colors group-hover:text-[var(--accent)]">{cert.title}</h3>
@@ -521,14 +526,23 @@ const CompactProjectCard = ({ project, index, onClick }) => (
   >
     {/* Visual */}
     <div className={`relative h-36 overflow-hidden bg-gradient-to-br ${project.gradient}`}>
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px)',
-          backgroundSize: '24px 24px'
-        }}
-      />
-      <div className="absolute -right-6 -top-8 h-24 w-24 rounded-full bg-white/15 blur-2xl transition-transform duration-500 group-hover:scale-125" />
+      {project.image ? (
+        <>
+          <img src={project.image} alt={`${project.title} homepage`} loading="lazy" className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+        </>
+      ) : (
+        <>
+          <div
+            className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage: 'linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px)',
+              backgroundSize: '24px 24px'
+            }}
+          />
+          <div className="absolute -right-6 -top-8 h-24 w-24 rounded-full bg-white/15 blur-2xl transition-transform duration-500 group-hover:scale-125" />
+        </>
+      )}
       <div className="absolute bottom-3 left-4 right-4">
         <p className="font-mono text-[9px] font-medium uppercase tracking-[0.2em] text-white/60">{project.category}</p>
         <p className="font-display text-xl font-semibold italic text-white">{project.title}</p>
@@ -584,7 +598,7 @@ const ResultModal = ({ image, isOpen, onClose }) => {
         >
           <a
             href={image}
-            download="Academic-Result"
+            download={image.split('/').pop() || 'Academic-Result'}
             className="absolute left-4 top-4 z-10 flex items-center gap-1.5 rounded-full bg-black/60 px-3.5 py-2 text-xs font-semibold text-white backdrop-blur-md transition-colors hover:bg-black/80"
           >
             <Download size={14} /> Download
@@ -596,7 +610,11 @@ const ResultModal = ({ image, isOpen, onClose }) => {
           >
             <Plus size={20} className="rotate-45" />
           </button>
-          <img src={image} alt="Academic Result" loading="lazy" className="h-auto max-h-[90vh] w-full bg-white object-contain" />
+          {image.toLowerCase().endsWith('.pdf') ? (
+            <iframe src={image} title="Academic Result" className="h-[80vh] w-full bg-white" />
+          ) : (
+            <img src={image} alt="Academic Result" loading="lazy" className="h-auto max-h-[90vh] w-full bg-white object-contain" />
+          )}
         </motion.div>
       </motion.div>
     </AnimatePresence>

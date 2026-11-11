@@ -72,17 +72,26 @@ const ProjectCard = ({ project, index, onClick, large = false }) => (
     onClick={onClick}
     className={`group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] transition-colors duration-300 hover:border-[var(--accent)]/50 hover:shadow-2xl ${large ? 'md:col-span-1' : ''}`}
   >
-    {/* Mockup visual */}
+    {/* Visual */}
     <div className={`relative ${large ? 'h-52' : 'h-40'} overflow-hidden bg-gradient-to-br ${project.gradient}`}>
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px)',
-          backgroundSize: '24px 24px'
-        }}
-      />
-      <div className="absolute -right-8 -top-10 h-32 w-32 rounded-full bg-white/15 blur-2xl transition-transform duration-700 group-hover:scale-150" />
-      <div className="absolute -bottom-10 -left-6 h-24 w-24 rounded-full bg-black/20 blur-2xl" />
+      {project.image ? (
+        <>
+          <img src={project.image} alt={`${project.title} homepage`} loading="lazy" className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+        </>
+      ) : (
+        <>
+          <div
+            className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage: 'linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px)',
+              backgroundSize: '24px 24px'
+            }}
+          />
+          <div className="absolute -right-8 -top-10 h-32 w-32 rounded-full bg-white/15 blur-2xl transition-transform duration-700 group-hover:scale-150" />
+          <div className="absolute -bottom-10 -left-6 h-24 w-24 rounded-full bg-black/20 blur-2xl" />
+        </>
+      )}
       <div className="absolute bottom-4 left-5 right-5">
         <motion.p
           initial={{ opacity: 0, x: -10 }}

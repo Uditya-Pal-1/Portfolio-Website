@@ -14,6 +14,11 @@ export default function ProjectModal({ project, onClose }) {
         className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-[var(--border)] bg-[var(--bg-card)] shadow-2xl"
       >
         <div className={`h-2 w-full bg-gradient-to-r ${project.gradient}`} />
+        {project.image && (
+          <div className="px-6 pt-6 md:px-8 md:pt-8">
+            <img src={project.image} alt={`${project.title} homepage screenshot`} loading="lazy" className="w-full rounded-xl border border-[var(--border)] object-cover object-top" />
+          </div>
+        )}
         <div className="p-6 md:p-8">
           <div className="mb-6 flex items-start justify-between">
             <div>

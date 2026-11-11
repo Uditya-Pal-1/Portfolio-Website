@@ -34,11 +34,16 @@ export default function Certificates({ theme, toggleTheme }) {
                     href={cert.file}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent)]/50 hover:shadow-xl"
+                    className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-[var(--bg-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${cert.premium ? 'border-[var(--accent)]/60 shadow-[0_0_35px_-12px_var(--accent)] hover:border-[var(--accent)]' : 'border-[var(--border)] hover:border-[var(--accent)]/50'}`}
                   >
+                    {cert.premium && (
+                      <span className="absolute left-3 top-3 z-10 flex items-center gap-1 rounded-full bg-[var(--accent)] px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-widest text-white shadow-lg">
+                        <Award size={10} /> Milestone
+                      </span>
+                    )}
                     <div className="relative h-44 overflow-hidden bg-[var(--bg-subtle)]">
                       <CertThumb file={cert.file} title={cert.title} className="transition-transform duration-500 group-hover:scale-[1.04]" />
-                      <span className="absolute left-3 top-3 flex h-8 w-8 items-center justify-center rounded-lg bg-black/55 text-white backdrop-blur-sm">
+                      <span className={`absolute top-3 flex h-8 w-8 items-center justify-center rounded-lg bg-black/55 text-white backdrop-blur-sm ${cert.premium ? 'left-24' : 'left-3'}`}>
                         <Award size={15} />
                       </span>
                       <span className="absolute right-3 top-3 rounded-full bg-black/60 px-2.5 py-1 font-mono text-[10px] font-medium text-white backdrop-blur-sm">{cert.year}</span>

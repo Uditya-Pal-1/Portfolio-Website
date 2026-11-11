@@ -3,10 +3,10 @@ export const PROJECTS = [
     title: "LeetLab",
     year: "2026",
     category: "Full-Stack Platform",
-    desc: "A coding-practice platform with problem sets, batch code execution via Judge0, submission tracking and playlists.",
+    desc: "Production coding-assessment platform — problem sets, Judge0 batch execution, RBAC, submissions and playlists.",
     tags: ['React', 'Node.js', 'Express', 'Prisma', 'PostgreSQL', 'Judge0'],
     liveUrl: "#",
-    codeUrl: "https://github.com/Uditya-Pal-1/Chai-Aur-Code-Cohort/tree/main/Projects/leetLab",
+    codeUrl: "https://github.com/Uditya-Pal-1/LeetLab",
     gradient: "from-orange-600 via-red-600 to-stone-800",
     featured: true,
     details: "LeetLab is a flagship full-stack build: JWT auth with HTTP-only cookies, admin and user roles, problem management with difficulty levels, tags, hints and editorial content, batch code execution through a Judge0-compatible API with per-test-case output, execution time and memory stats, submission history, solved tracking, and personal playlists. Frontend: React, Vite, Tailwind, DaisyUI, React Hook Form, Zod. Backend: Node.js, Express, Prisma, PostgreSQL."
@@ -15,10 +15,11 @@ export const PROJECTS = [
     title: "TensorWage",
     year: "2026",
     category: "Machine Learning",
-    desc: "AI salary prediction model — predicts salaries from experience, role and features. Live on Vercel.",
+    desc: "AI salary prediction model — forecasts compensation from experience and role. Live on Vercel.",
     tags: ['JavaScript', 'ML', 'Vercel'],
     liveUrl: "https://ai-salary-prediction-model.vercel.app",
-    codeUrl: "https://github.com/Uditya-Pal-1/AI-Salary-Prediction-Model",
+    codeUrl: "https://github.com/Uditya-Pal-1/TensorWage",
+    image: "/projects/tensorwage.webp",
     gradient: "from-orange-500 via-stone-700 to-stone-900",
     featured: false,
     details: "TensorWage — an AI model that predicts salaries based on input features like experience and role. Built and deployed as a live web app on Vercel."
@@ -27,46 +28,50 @@ export const PROJECTS = [
     title: "AtellixEngine",
     year: "2026",
     category: "Interview Platform",
-    desc: "Candidate-first technical interview platform — live coding rooms, scheduling and interviewer feedback for engineering teams.",
+    desc: "Real-time collaborative code editor with AI debugging — live coding rooms, scheduling and interviewer feedback.",
     tags: ['React 19', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Framer Motion', 'Three.js'],
     liveUrl: "#",
-    codeUrl: "#",
+    codeUrl: "https://github.com/Uditya-Pal-1/Atellix-Engine",
+    image: "/projects/atellix-engine.webp",
     gradient: "from-stone-900 via-orange-800 to-amber-600",
-    featured: false,
+    featured: true,
     details: "A technical interview platform inspired by live coding tools. React 19 + Vite + Tailwind frontend with account flows, pricing, blog and a lazy-loaded Three.js hero; Node.js/Express 5 + MongoDB/Mongoose backend with cookie-based JWT auth and role-protected problem authoring. Black & orange design system."
   },
   {
     title: "AtellixUI",
     year: "2026",
     category: "Design System",
-    desc: "Token-driven React component system — 67 interactive components, searchable library, playground and copyable TSX source.",
+    desc: "Token-driven component library — 67 interactive components, searchable docs, playground and copyable TSX.",
     tags: ['React', 'TypeScript', 'Tailwind', 'Framer Motion', 'Three.js', 'Sandpack', 'Express'],
     liveUrl: "#",
-    codeUrl: "#",
+    codeUrl: "https://github.com/Uditya-Pal-1/Atellix-UI",
+    image: "/projects/atellix-ui.webp",
     gradient: "from-amber-600 via-orange-700 to-stone-800",
-    featured: false,
+    featured: true,
     details: "A prototype design system: dark/light landing, /system, /about and /components pages, a two-mode playground with Sandpack live editor, 67 interactive component previews with copyable source, theme-aware surfaces and a Three.js hero. Backend: modular Express REST API with MongoDB."
   },
   {
     title: "AtellixHome",
     year: "2026",
     category: "E-Commerce",
-    desc: "Responsive furniture storefront on Next.js — catalog, filters, cart, wishlist and consultation workflows.",
+    desc: "Premium furniture storefront on Next.js — catalog, filters, cart, wishlist and consultation flows.",
     tags: ['Next.js', 'React', 'Tailwind', 'TypeScript'],
     liveUrl: "#",
-    codeUrl: "https://github.com/Uditya-Pal-1/Chai-Aur-Code-Cohort/tree/main/Projects/AtellixHome",
+    codeUrl: "https://github.com/Uditya-Pal-1/Atellix-Home",
+    image: "/projects/atellix-home.webp",
     gradient: "from-orange-700 via-amber-700 to-yellow-700",
-    featured: false,
+    featured: true,
     details: "A furniture e-commerce storefront built with Next.js: collection filters, product quick views, finish selection, persistent cart and wishlist, order/consultation/newsletter flows behind verification gates, light/dark theme and accessible dialogs."
   },
   {
     title: "Heritage Bowl",
     year: "2026",
     category: "D2C Storefront",
-    desc: "Premium Indian heritage food brand storefront — shop, cart, checkout, order tracking and admin/ERP prototype.",
+    desc: "Premium D2C food-brand storefront — shop, checkout, order tracking and a full admin/ERP panel.",
     tags: ['React', 'Node.js', 'MongoDB', 'MERN', 'Tailwind'],
     liveUrl: "#",
-    codeUrl: "#",
+    codeUrl: "https://github.com/Uditya-Pal-1/The-Heritage-Bowl-Food-Brand",
+    image: "/projects/heritage-bowl.webp",
     gradient: "from-red-800 via-orange-800 to-amber-700",
     featured: true,
     details: "Mobile-first MERN-track storefront for a premium D2C food brand with real photography: shop with filter/search/sort, product detail, cart, wishlist, validated checkout, order tracking, account flows, policy pages and a demo admin/ERP panel (orders, inventory, customers) mirroring the brand's spreadsheet schema. Includes a rule-based chatbot widget."
@@ -75,10 +80,11 @@ export const PROJECTS = [
     title: "PrepConnect",
     year: "2025",
     category: "Social Impact",
-    desc: "Platform connecting people — students with mentors and volunteers with nonprofits. Opportunity discovery, applications and management.",
+    desc: "Social-impact platform — connects students with mentors and volunteers with nonprofits.",
     tags: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Docker', 'TypeScript'],
     liveUrl: "#",
-    codeUrl: "https://github.com/Uditya-Pal-1/PREPCONNECT",
+    codeUrl: "https://github.com/Uditya-Pal-1/PrepConnect",
+    image: "/projects/prepconnect.webp",
     gradient: "from-emerald-700 via-teal-700 to-cyan-700",
     featured: true,
     details: "PrepConnect (aka SkillBridge) connects people who want to contribute skills with organizations that need help — students find mentors, volunteers find nonprofits. Volunteers discover opportunities and track applications; NGO accounts publish and manage listings and review applicants. Node.js/Express API with MongoDB, JWT auth, Docker Compose, seed scripts and SMTP password resets. TypeScript across the stack."
@@ -87,10 +93,11 @@ export const PROJECTS = [
     title: "AtellixDo",
     year: "2025",
     category: "Productivity",
-    desc: "Task management app with optional, human-reviewed AI assistance — built on TanStack Start.",
+    desc: "Task manager with human-reviewed AI assistance — lists, planning and focus, built on TanStack Start.",
     tags: ['TanStack Start', 'React', 'TypeScript', 'Tailwind'],
     liveUrl: "#",
-    codeUrl: "#",
+    codeUrl: "https://github.com/Uditya-Pal-1/Atellix-Do",
+    image: "/projects/atellix-do.webp",
     gradient: "from-orange-800 via-amber-800 to-stone-800",
     featured: false,
     details: "AtellixDo is a task-management product concept: lists, planning and optional AI assistance that stays human-reviewed. Built with TanStack Start, React, TypeScript and Tailwind CSS."
@@ -99,10 +106,11 @@ export const PROJECTS = [
     title: "ChronoStudy",
     year: "2025",
     category: "Learning Tool",
-    desc: "Browser-based study timer and planner — distraction-free focus sessions with task tracking.",
+    desc: "Distraction-free study timer and planner — focus sessions, task tracking and progress analytics.",
     tags: ['HTML', 'CSS', 'JavaScript'],
     liveUrl: "#",
-    codeUrl: "#",
+    codeUrl: "https://github.com/Uditya-Pal-1/ChronoStudy",
+    image: "/projects/chronostudy.webp",
     gradient: "from-sky-700 via-blue-800 to-indigo-900",
     featured: false,
     details: "A vanilla JS study companion: focus timer, task planning and progress tracking — built while learning DOM and browser APIs during the cohort."
@@ -111,10 +119,11 @@ export const PROJECTS = [
     title: "Agentico",
     year: "2026",
     category: "AI Experiment",
-    desc: "AI-assisted agent experiment — React + TypeScript + Vite playground for agentic UI patterns.",
+    desc: "AI-agent interaction playground — React + TypeScript + Vite experiment for agentic UI patterns.",
     tags: ['React', 'TypeScript', 'Vite', 'Tailwind'],
     liveUrl: "#",
-    codeUrl: "#",
+    codeUrl: "https://github.com/Uditya-Pal-1/Agentico",
+    image: "/projects/agentico.webp",
     gradient: "from-violet-700 via-purple-800 to-fuchsia-800",
     featured: false,
     details: "An experimental React + TypeScript + Vite project exploring AI-agent-style interactions and modern tooling (Oxc, Tailwind) — part of my Atellix product exploration."
@@ -164,7 +173,7 @@ export const EXPERIENCE = [
   {
     role: "AI Intern",
     org: "AICTE Edunet & IBM SkillsBuild",
-    period: "2025",
+    period: "18 Jun — 30 Jul 2025",
     desc: "AICTE Edunet × IBM SkillsBuild internship — studied AI/ML fundamentals (Watson Studio, NLP, prompt tuning), built an AI project end-to-end, presented it, and earned the completion certificate.",
     did: ["Completed AI/ML coursework on Watson Studio", "Built and presented a capstone AI project", "Earned IBM SkillsBuild badges"],
     file: "/certificates/internships/ai/AI Internship _ AICTE, Edunet & IBM SkillsBuild.pdf"
@@ -172,26 +181,18 @@ export const EXPERIENCE = [
   {
     role: "Frontend Intern",
     org: "AICTE Edunet",
-    period: "2025",
-    desc: "AICTE Edunet frontend internship — built a responsive web project, wrote the internship report, and received the offer letter and completion certificate.",
+    period: "21 Aug — 30 Sep 2025",
+    desc: "AICTE Edunet frontend internship — designed and built a responsive web application, documented the work in a formal internship report, and earned the AICTE B3 completion certificate.",
     did: ["Developed a responsive frontend web application", "Wrote and submitted the internship report", "Presented the project for evaluation"],
-    file: "/certificates/internships/frontend/frontend internship offerletter.pdf"
+    file: "/certificates/internships/frontend/AICTE-B3-Completion-Certificate.pdf"
   },
   {
     role: "Full Stack Intern (Angular / MERN)",
     org: "Infosys Springboard",
-    period: "2024",
+    period: "6 Oct — 10 Dec 2025",
     desc: "Infosys Springboard full-stack track (Angular/MERN) — built the Smart Study Planner app, practiced Agile workflows and earned the internship certificate.",
     did: ["Built Smart Study Planner — a full-stack study scheduling app", "Worked with Angular/MERN fundamentals and Agile process", "Completed assessments and earned certificate"],
     file: "/certificates/internships/infosys/Infosys Internship Certificate.pdf"
-  },
-  {
-    role: "IBM SkillsBuild Intern",
-    org: "IBM SkillsBuild",
-    period: "2025",
-    desc: "IBM SkillsBuild program — completed frontend development and AI/ML certifications, built the Smart Study Planner project, and earned the IBM internship completion certificate.",
-    did: ["Completed Frontend Development certification", "Earned AI/ML badges (Watson Studio, NLP, CV)", "Built and shipped Smart Study Planner on Vercel"],
-    file: "/certificates/ibm/IBM INTERNSHIP Completion Certificate _ SkillsBuild.pdf"
   }
 ];
 
@@ -201,7 +202,7 @@ export const EDUCATION = [
     degree: "Master of Computer Applications (MCA)",
     cgpa: "CGPA: 8.50",
     period: "2024 — 2026",
-    result: "/results/mca-final.jpeg"
+    result: "/results/mca-final-sem.pdf"
   },
   {
     school: "CSJM University",
@@ -311,7 +312,7 @@ export const SOCIALS = [
 
 export const STATS = [
   { value: "12+", label: "Technologies" },
-  { value: "3", label: "Featured projects" },
+  { value: "6", label: "Featured projects" },
   { value: "12.8k", label: "Total blog views" },
   { value: "MCA", label: "Galgotias University" }
 ];

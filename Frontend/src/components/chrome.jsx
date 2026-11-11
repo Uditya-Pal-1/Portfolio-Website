@@ -49,11 +49,12 @@ export const Nav = ({ theme, toggleTheme }) => {
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--bg)]/85 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <Link to="/" className="group flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--accent)] text-sm font-extrabold text-white transition-transform duration-300 group-hover:rotate-6 md:hidden">
-            UP
-          </span>
-          <Wordmark />
+        <Link to="/" className="group flex items-center">
+          <img
+            src={theme === 'dark' ? '/logo-dark.svg' : '/logo-light.svg'}
+            alt="Uditya Pal"
+            className="h-9 w-auto transition-transform duration-300 group-hover:scale-[1.03]"
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -155,23 +156,6 @@ export const Nav = ({ theme, toggleTheme }) => {
     </header>
   );
 };
-
-const Wordmark = () => (
-  <span className="relative inline-flex font-display text-lg font-semibold italic tracking-tight">
-    <span className="inline-flex overflow-hidden">
-      {'Uditya Pal'.split('').map((ch, i) => (
-        <motion.span
-          key={i}
-          className="inline-block text-[var(--text)]"
-          animate={{ y: [0, -4, 0] }}
-          transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', delay: i * 0.09 }}
-        >
-          {ch === ' ' ? '\u00A0' : ch}
-        </motion.span>
-      ))}
-    </span>
-  </span>
-);
 
 /* ---------- Section heading ---------- */
 

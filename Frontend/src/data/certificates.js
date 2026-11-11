@@ -1,6 +1,12 @@
 // file paths are relative to /public/certificates
 export const CERT_GROUPS = [
   {
+    category: "Chai aur Code — Web Dev Cohort",
+    items: [
+      { title: "Full Stack Web Dev Cohort — Completion", issuer: "Chai aur Code (Hitesh Choudhary)", file: "/certificates/ChaiCode-Cohort-Completion-Certificate.pdf", year: "2026", featured: true, premium: true }
+    ]
+  },
+  {
     category: "IBM SkillsBuild",
     items: [
       { title: "IBM Internship Completion", issuer: "IBM SkillsBuild", file: "/certificates/ibm/IBM INTERNSHIP Completion Certificate _ SkillsBuild.pdf", year: "2025", featured: true },
@@ -14,6 +20,17 @@ export const CERT_GROUPS = [
       { title: "Introduction to AI", issuer: "IBM SkillsBuild", file: "/certificates/ibm/Introduction to AI Completion Certificate _ SkillsBuild.pdf", year: "2025" },
       { title: "Critical Soft Skills", issuer: "IBM SkillsBuild", file: "/certificates/ibm/Cretical Soft Skill Certificate _ SkillsBuild.pdf", year: "2025" },
       { title: "AI Fundamentals Badge", issuer: "IBM Credly", file: "/certificates/ibm/IBM CREDLY BADGES/artificial-intelligence-fundamentals.png", year: "2025" }
+    ]
+  },
+  {
+    category: "Internship Documents",
+    items: [
+      { title: "Infosys Full Stack Internship (Angular/MERN)", issuer: "Infosys", file: "/certificates/internships/infosys/Infosys Internship Certificate.pdf", year: "2025", featured: true, premium: true },
+      { title: "Frontend Internship — AICTE B3 Completion", issuer: "AICTE Edunet", file: "/certificates/internships/frontend/AICTE-B3-Completion-Certificate.pdf", year: "2025", featured: true },
+      { title: "AI Internship — AICTE, Edunet & IBM SkillsBuild", issuer: "AICTE / IBM", file: "/certificates/internships/ai/AI Internship _ AICTE, Edunet & IBM SkillsBuild.pdf", year: "2025", featured: true },
+      { title: "Frontend Internship Offer Letter", issuer: "AICTE Edunet", file: "/certificates/internships/frontend/frontend internship offerletter.pdf", year: "2025" },
+      { title: "Frontend Internship — Project Report", issuer: "AICTE Edunet", file: "/certificates/internships/frontend/Internship Report – Front End Web Dev (aicte–edunet).pdf", year: "2025" },
+      { title: "Technosian Joining Letter", issuer: "Technosian", file: "/certificates/technosian/Joining letter internship.pdf", year: "2024" }
     ]
   },
   {
@@ -44,17 +61,11 @@ export const CERT_GROUPS = [
       { title: "C Programming — SoloLearn", issuer: "SoloLearn", file: "/certificates/c/SoloLearn Certificate 24scse2030185.pdf", year: "2024" },
       { title: "CCC", issuer: "NIELIT", file: "/certificates/ccc/ccc certificate.jpg", year: "2024" }
     ]
-  },
-  {
-    category: "Internship Documents",
-    items: [
-      { title: "AI Internship — AICTE, Edunet & IBM SkillsBuild", issuer: "AICTE / IBM", file: "/certificates/internships/ai/AI Internship _ AICTE, Edunet & IBM SkillsBuild.pdf", year: "2025", featured: true },
-      { title: "Frontend Internship Offer Letter", issuer: "AICTE Edunet", file: "/certificates/internships/frontend/frontend internship offerletter.pdf", year: "2025", featured: true },
-      { title: "Frontend Internship — Project Report", issuer: "AICTE Edunet", file: "/certificates/internships/frontend/Internship Report – Front End Web Dev (aicte–edunet).pdf", year: "2025" },
-      { title: "Infosys Full Stack Internship (Angular/MERN)", issuer: "Infosys", file: "/certificates/internships/infosys/Infosys Internship Certificate.pdf", year: "2024", featured: true },
-      { title: "Technosian Joining Letter", issuer: "Technosian", file: "/certificates/technosian/Joining letter internship.pdf", year: "2024" }
-    ]
   }
 ];
 
-export const FEATURED_CERTS = CERT_GROUPS.flatMap(g => g.items).filter(c => c.featured).slice(0, 4);
+const ALL_CERTS = CERT_GROUPS.flatMap(g => g.items);
+export const FEATURED_CERTS = [
+  ...ALL_CERTS.filter(c => c.premium),
+  ...ALL_CERTS.filter(c => c.featured && !c.premium)
+].slice(0, 4);
