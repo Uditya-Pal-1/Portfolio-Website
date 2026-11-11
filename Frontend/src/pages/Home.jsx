@@ -97,8 +97,9 @@ export default function Home({ theme, toggleTheme }) {
               <div className="relative">
                 <div className="absolute -inset-3 rounded-[1.75rem] border border-[var(--accent)]/30" />
                 <img
-                  src="/profile.jpg"
+                  src="/profile.webp"
                   alt="Uditya Pal"
+                  fetchPriority="high"
                   className="relative aspect-[4/5] w-full rounded-3xl border border-[var(--border)] object-cover shadow-2xl"
                 />
                 <div className="absolute -bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full border border-[var(--border)] bg-[var(--bg-card)] px-4 py-2 text-xs font-semibold shadow-lg">

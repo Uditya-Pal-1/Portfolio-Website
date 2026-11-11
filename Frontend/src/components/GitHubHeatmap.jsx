@@ -78,6 +78,7 @@ export default function GitHubHeatmap() {
                     disabled={!hasDay}
                     onClick={() => hasDay && setSelected(active ? null : d)}
                     title={hasDay ? `${d.date} — ${d.count} contributions` : ''}
+                    aria-label={hasDay ? `${d.date}: ${d.count} contributions` : 'No contribution data'}
                     className={`rounded-[4px] transition-all duration-200 ${hasDay ? 'cursor-pointer hover:scale-125 hover:ring-2 hover:ring-[var(--accent)]' : 'cursor-default'}`}
                     style={{
                       width: CELL, height: CELL,

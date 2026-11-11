@@ -38,7 +38,20 @@ function parseRss(xmlText) {
   return items;
 }
 
-/* Merges live Hashnode RSS posts with local fallback posts */
+/* Hashnode embeds the view count in each post page's JSON payload */
+async function fetchViews(url) {
+  try {
+    const html = await (await fetch(url)).text();
+    const m = html.match(/"views\\?":\s*(\d+)/) || html.match(/views.{0,4}:\s*(\d+)/);
+    if (!m) return '';
+    const n = parseInt(m[1], 10);
+    return n > 0 ? `${n.toLocaleString('en-US')} views` : '';
+  } catch {
+    return '';
+  }
+}
+
+/* Merges live Hashnode RSS posts (with real view counts) and local fallback posts */
 export function usePosts() {
   const [posts, setPosts] = useState(POSTS);
 
@@ -46,7 +59,13 @@ export function usePosts() {
     fetch(RSS_URL)
       .then(r => (r.ok ? r.text() : Promise.reject()))
       .then(parseRss)
-      .then(items => { if (items.length) setPosts(items); })
+      .then(async items => {
+        if (!items.length) return;
+        const withViews = await Promise.all(
+          items.map(async p => ({ ...p, views: await fetchViews(p.link) }))
+        );
+        setPosts(withViews);
+      })
       .catch(() => {});
   }, []);
 

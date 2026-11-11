@@ -1,0 +1,39 @@
+# Uditya Pal — Full-Stack Developer
+
+> Portfolio of Uditya Pal (Aman Pal), a Full-Stack MERN Developer from Greater Noida, India.
+> MCA graduate (CGPA 8.50) open to software engineering roles.
+
+## About
+
+Uditya builds production-grade web applications with React, Next.js, Node.js,
+Express, MongoDB, PostgreSQL and TypeScript. Interests include real-time
+collaborative tools, AI-powered platforms, design systems and assessment engines.
+
+## Key pages
+
+- [Home](https://uditya-pal.vercel.app/) — portfolio overview, projects, experience, certificates
+- [Projects](https://uditya-pal.vercel.app/projects) — detailed project case studies
+- [Certificates](https://uditya-pal.vercel.app/certificates) — verified credentials
+- [Blog](https://uditya-pal.vercel.app/blogs) — articles on CSS, animation and web development
+
+## Profiles
+
+- GitHub: https://github.com/Uditya-Pal-1
+- LinkedIn: https://www.linkedin.com/in/udityapal
+- X (Twitter): https://x.com/Aman_pal_1
+- Email: Uditya2024@gmail.com
+- Resume: https://uditya-pal.vercel.app/latest%20Resume.pdf
+
+## Flagship projects
+
+- LeetLab — full-stack coding assessment platform (Judge0, Prisma, PostgreSQL)
+- AtellixEngine — AI-powered coding assessment & collaboration platform
+- AtellixUI — open-source component library (60+ components)
+- AtellixCareer — AI career navigator with LLM skill-gap analysis
+- Heritage Bowl — MERN D2C storefront with admin/ERP panel
+- PrepConnect — volunteer/nonprofit connection platform
+
+## Contact
+
+The site includes a contact form that emails the owner via SMTP.
+For recruiting or collaboration, email Uditya2024@gmail.com.

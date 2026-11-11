@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { SiX } from 'react-icons/si';
 import TimeDisplay from './TimeDisplay';
+import ContactForm from './ContactForm';
 import { NAV_LINKS, SOCIALS } from '../data/content';
 
 const ICONS = {
@@ -229,30 +230,24 @@ export const Footer = () => {
     <footer className="relative border-t border-[var(--border)] bg-[var(--bg-subtle)]">
       {/* CTA band */}
       <div className="border-b border-[var(--border)]">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-5 py-14 md:flex-row md:items-center">
-          <div>
+        <div className="mx-auto max-w-6xl px-5 py-14">
+          <div className="mb-8">
             <p className="font-mono text-xs font-medium tracking-widest text-[var(--accent)]">CONTACT</p>
             <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight md:text-5xl">
               Have a project in mind? <span className="italic text-[var(--accent)]">Let's talk.</span>
             </h2>
           </div>
-          <a
-            href="mailto:Uditya2024@gmail.com"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-[var(--accent)] px-7 py-3.5 text-sm font-semibold text-white transition-all hover:brightness-110"
-          >
-            Uditya2024@gmail.com
-            <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          <ContactForm />
         </div>
       </div>
 
       {/* Link columns */}
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
-          <div className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--accent)] text-sm font-extrabold text-white md:hidden">UP</span>
-            <span className="font-display text-xl font-semibold italic">Uditya Pal</span>
-          </div>
+          <Link to="/" className="inline-flex items-center">
+            <img src="/logo-light.svg" alt="Uditya Pal" className="h-10 w-auto dark:hidden" />
+            <img src="/logo-dark.svg" alt="Uditya Pal" className="hidden h-10 w-auto dark:block" />
+          </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--text-secondary)]">
             Full-Stack Developer based in Greater Noida, India. Building fast, accessible products with React, Node.js and modern web technologies.
           </p>

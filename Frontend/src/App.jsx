@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
-import Blogs from './pages/Blogs';
-import Projects from './pages/Projects';
-import Certificates from './pages/Certificates';
+
+const Blogs = lazy(() => import('./pages/Blogs'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Certificates = lazy(() => import('./pages/Certificates'));
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -45,13 +46,15 @@ function Shell() {
   return (
     <>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />} />
-        <Route path="/blogs" element={<Blogs theme={theme} toggleTheme={toggleTheme} />} />
-        <Route path="/projects" element={<Projects theme={theme} toggleTheme={toggleTheme} />} />
-        <Route path="/certificates" element={<Certificates theme={theme} toggleTheme={toggleTheme} />} />
-        <Route path="*" element={<Home theme={theme} toggleTheme={toggleTheme} />} />
-      </Routes>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />} />
+          <Route path="/blogs" element={<Blogs theme={theme} toggleTheme={toggleTheme} />} />
+          <Route path="/projects" element={<Projects theme={theme} toggleTheme={toggleTheme} />} />
+          <Route path="/certificates" element={<Certificates theme={theme} toggleTheme={toggleTheme} />} />
+          <Route path="*" element={<Home theme={theme} toggleTheme={toggleTheme} />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }
